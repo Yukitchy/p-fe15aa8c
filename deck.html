@@ -120,19 +120,55 @@ td.ok{font-family:var(--disp);color:var(--accent);font-size:1.5cqw}
 svg{width:100%;height:auto;display:block}
 svg text{font-family:var(--body)}
 svg text.d{font-family:var(--disp)}
-@media (max-width:760px){.slide{aspect-ratio:auto;padding:26px 22px}
+.vbridge,.vflow{display:none}
+@media (max-width:760px){
+  .deck{padding:14px 12px 40px;gap:12px}
+  .slide{aspect-ratio:auto;padding:20px 18px;border-radius:8px}
   .g3,.g2,.stage,.vs,.steps,.voices{grid-template-columns:1fr;flex-direction:column}
-  .steps>div{height:auto!important}.vs .il{width:38%;height:20cqw}
-  h2{font-size:6.6cqw}.cover h2{font-size:9cqw}.lede{font-size:3.4cqw}
-  .card h3,.stage h3,.steps h3,.vs h3{font-size:4cqw}.card p,.stage p,.steps p,.vs p{font-size:3cqw}
-  .money,.steps .money{font-size:4.2cqw}.vs .amt{font-size:7cqw}
-  .eyebrow,.num,.tag,.mark,.stage .when,.steps .when{font-size:2.8cqw}
-  table{font-size:3cqw}th{font-size:2.6cqw}td.ok{font-size:3.2cqw}
-  .bar .lab,.bar .val{font-size:3.2cqw}.kill p{font-size:3cqw}
-  .voice q{font-size:3.1cqw}.voice .who-l{font-size:2.7cqw}.sample{font-size:2.5cqw}
-  .foot,.score{font-size:3cqw}.score b{font-size:3.8cqw}
-  .il{height:26cqw;background-position:center}.il.sm{height:20cqw}
-  .coverart{position:static;margin-top:18px}.coverart span{width:26cqw;height:30cqw}}
+  .steps>div{height:auto!important}
+  .rail{padding-bottom:8px;margin-bottom:14px;gap:8px}
+  .logo{width:18px;height:18px}.rail .logo{margin-right:0}
+  .mark{font-size:10.5px}.num{font-size:14px}
+  .eyebrow,.cover .eyebrow{font-size:12px;margin:0 0 5px}
+  h2{font-size:22px;line-height:1.34;margin-bottom:12px}
+  .cover h2{font-size:27px;margin-bottom:12px}
+  .cover>.logo{width:46px;height:46px;margin-bottom:10px}
+  .lede,.cover .lede{font-size:14px;line-height:1.78;max-width:none}
+  .cover .meta{font-size:11.5px;margin-top:14px}
+  .card{padding:14px}
+  .card h3,.stage h3,.steps h3,.vs h3{font-size:16px}
+  .card p,.stage p,.steps p,.vs p{font-size:13px;line-height:1.72}
+  .tag,.stage .when,.steps .when{font-size:11px}
+  .money,.steps .money{font-size:18px}
+  .vs>div{padding:14px}.vs .amt{font-size:26px}
+  .vs .il{width:36%;height:76px}
+  table{font-size:13px}th{font-size:11px}td{padding:10px 0}
+  td:first-child{width:38%;padding-right:12px}td.ok{font-size:14px}
+  .bar .lab{font-size:13px;width:24%}.bar .val{font-size:14px;width:26%}
+  .bar .track{height:14px}
+  .kill{padding:12px 14px}.kill p{font-size:13px}.kill .tag{font-size:11px}
+  .voice{padding:14px}.voice q{font-size:13.5px}.voice .who-l{font-size:11px}
+  .sample{font-size:10px;padding:1px 8px}
+  .foot{font-size:11.5px;margin-top:10px;max-width:none}
+  .score{font-size:13px;padding:9px 0}.score b{font-size:17px}
+  .il{height:92px;background-position:center;margin-bottom:8px}.il.sm{height:78px}
+  .coverart{position:static;margin-top:16px;gap:8px}
+  .coverart span{width:74px;height:88px}
+  .lplink{font-size:13.5px;padding:10px 14px;gap:8px;margin-top:14px}
+  .lplink .logo{width:17px;height:17px}.lplink .langs-note{font-size:10.5px;margin-left:2px}
+  /* 横長の図は縦積みに差し替える（横スクロールさせない） */
+  .slide>svg{display:none}
+  .vbridge,.vflow{display:flex;flex-direction:column;gap:8px;margin:0;padding:0;list-style:none}
+  .vbridge li,.vflow li{position:relative;background-color:var(--ground);border-radius:8px;padding:11px 13px}
+  .vflow li+li::before,.vbridge li+li::before{content:"";position:absolute;left:22px;top:-8px;width:2px;height:8px;background-color:var(--rule)}
+  .vbridge b,.vflow b{display:block;font-family:var(--disp);font-weight:900;font-size:14.5px;line-height:1.45}
+  .vbridge span,.vflow span{display:block;font-size:12px;color:var(--ink-2);line-height:1.6}
+  .vbridge .mid{background-color:var(--accent-soft)}.vbridge .mid b{color:var(--accent)}
+  .vflow .hi{background-color:var(--accent-soft)}.vflow .hi b{color:var(--accent)}
+  .vflow .br{margin-left:22px;border-left:3px solid var(--rule)}
+  .vflow .sig{background-color:var(--sig-soft);border-left-color:var(--sig)}.vflow .sig b{color:var(--sig)}
+  .vflow .go{background-color:var(--panel);border-left-color:var(--accent)}
+}
 @media print{body{background:#fff}.deck{padding:0;gap:0;max-width:none}
   .slide{break-after:page;border:none;border-radius:0}}
 
@@ -239,6 +275,11 @@ svg text.d{font-family:var(--disp)}
       <marker id="ar2" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="var(--ink-3)"/></marker>
     </defs>
   </svg>
+  <ul class="vbridge">
+    <li><b>旅行者</b><span>言葉・不安・保険</span></li>
+    <li class="mid"><b>ナース・オンコール</b><span>看護師 ＝ 病院の言葉／ガイド ＝ 旅行者の言葉</span></li>
+    <li><b>病院</b><span>診療科・書類・未収金</span></li>
+  </ul>
   <p class="foot">加えて、民泊ゲスト・秋葉原ツアーの参加者・Podcastの英語圏リスナーという既存の接点がある。初期テストの母数はゼロではない。</p>
 </section>
 
@@ -314,6 +355,14 @@ svg text.d{font-family:var(--disp)}
       <marker id="a5" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="var(--accent)"/></marker>
     </defs>
   </svg>
+  <ol class="vflow">
+    <li><b>体調不良</b><span>ゲストから連絡</span></li>
+    <li class="hi"><b>看護師が聞き取り</b><span>チャット・無料</span></li>
+    <li class="br sig"><b>緊急 → 119番 / #7119</b><span>わたしたちは対応しない・案内する</span></li>
+    <li class="br go"><b>今日行くべき</b><span>通院同行を予約（有料）</span></li>
+    <li class="br mute"><b>様子を見てよい</b><span>セルフケアと薬局を案内</span></li>
+    <li class="hi"><b>同行・通訳</b><span>受付・問診票・診察／会計・保険書類まで</span></li>
+  </ol>
   <p class="foot">緊急を引き受けないことが設計の核心。だからこそ看護師の本業シフトと衝突せず、事業として続く。</p>
 </section>
 
