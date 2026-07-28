@@ -151,8 +151,14 @@ body{margin:0;background-color:var(--ground);color:var(--ink);font-family:var(--
 .foot{font-size:11.5px;color:var(--ink-3);text-align:center;line-height:1.7;margin:2px 0 0}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 @media (max-width:860px){
-  .demo{grid-template-columns:1fr;gap:22px;padding:20px 14px 48px}
-  .panel-note{position:static}
+  .demo{grid-template-columns:1fr;gap:16px;padding:18px 14px 44px}
+  .panel-note{position:static;gap:12px}
+  .demo h1{font-size:22px}
+  .demo p{font-size:13px;line-height:1.75}
+  /* デモ操作は2列に畳む。ここで画面を使い切ると本体が見えない */
+  .switch{display:grid;grid-template-columns:1fr 1fr;gap:6px;padding:12px}
+  .switch b{grid-column:1/-1;font-size:11px}
+  .switch button{padding:9px 8px;font-size:12.5px;line-height:1.45}
   .phone{width:100%;max-width:390px;padding:0;border-radius:0;background:transparent;box-shadow:none}
   .notch{display:none}.scr{border-radius:0;height:auto;min-height:660px}
   .scroll{height:auto;overflow:visible}.top{padding-top:14px}
